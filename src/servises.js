@@ -20,3 +20,9 @@ export function getFilmsSerch(name) {
     `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${name}`
   ).then(respons => respons.json());
 }
+
+export function getCast(id) {
+  return fetch(
+    `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${KEY}&language=en-US`
+  ).then(respons => respons.json());
+}

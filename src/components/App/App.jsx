@@ -1,8 +1,9 @@
-import { Home } from '../../../page/home/home';
-import { Movies } from '../../../page/movies';
+import { Home } from '../../page/home/home';
+import { Movies } from '../../page/movies';
 import { Container, StyledLink } from './App.stuled';
-import { Routes, Route, Outlet } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { MovieDetails } from '../movieDetails/MovieDetails';
+import { Cast } from '../cast/cast';
 
 export const App = () => {
   return (
@@ -16,9 +17,10 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:id" element={<MovieDetails />} />
+        <Route path="/movies/:id" element={<MovieDetails />}>
+          <Route path="cast" element={<Cast />} />
+        </Route>
       </Routes>
-      <Outlet />
     </div>
   );
 };

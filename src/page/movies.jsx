@@ -1,12 +1,6 @@
 import { getFilmsSerch } from '../servises';
 import { useState, useEffect } from 'react';
-import {
-  Link,
-  Route,
-  Routes,
-  useNavigate,
-  useSearchParams,
-} from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 function PeintArrey({ arr }) {
   // переназвати назву пропса який приходить

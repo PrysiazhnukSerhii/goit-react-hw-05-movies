@@ -29,16 +29,6 @@ export function Home() {
           );
         })}
       </ul>
-
-      {/* <Routes>
-        {totalList.map(e => {
-          return (
-            <>
-              <Route path="/movies" element={<Movies />} />
-            </>
-          );
-        })}
-      </Routes> */}
     </>
   );
 }
