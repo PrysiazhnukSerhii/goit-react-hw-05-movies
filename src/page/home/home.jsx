@@ -1,6 +1,6 @@
 import { getTrendingFilms } from '../../servises';
 import { useState, useEffect } from 'react';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // подивитись за ці срані стилі вони говно якесь
 //в функції назву пропса подумати
 
@@ -24,7 +24,9 @@ export function Home() {
         {totalList.map(e => {
           return (
             <li key={e.id}>
-              <Link to={`movies/${e.id}`}>{e.title}</Link>
+              <Link to={`movies/${e.id}`} state={{ from: '/' }}>
+                {e.title}
+              </Link>
             </li>
           );
         })}

@@ -1,18 +1,21 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { getMovieDetails } from '../../servises';
-import { Container } from './movieDetails.stuled';
+import {
+  Container,
+  Box,
+  AditionalContainer,
+  GoBackButton,
+  Span,
+} from './movieDetails.stuled';
 import { Link } from 'react-router-dom';
-
-// ---------------
-import { Routes, Route, Outlet } from 'react-router-dom';
-import { Cast } from '../cast/cast';
-
-// -------------
+import { ArrowLeft } from '../../image/arrowLeft';
 
 export function MovieDetails() {
   const [totalMovie, setTotalMovie] = useState('');
   const { id } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   //  норм назвати змінну якщо не додумаюсь зробити  краще/ попробувати написати фетч прямо в змінній/ хер його зан кажись норм пока, буде час то можна попробувати щось подумати
 
@@ -29,7 +32,6 @@ export function MovieDetails() {
     return;
   }
 
-  console.log(totalMovie);
   // із за цього ретурна не резервується спочатку місце збоку під картинку
 
   // з цею датою така махінація не дуже нравиться
@@ -37,19 +39,23 @@ export function MovieDetails() {
 
   const takeGenres = genres.map(e => e.name).join(', ');
 
-  console.log(id);
+  console.log(ArrowLeft);
 
   let userScore = Math.ceil(10 * vote_average);
   return (
     <>
+      <GoBackButton to={backLinkHref}>
+        {ArrowLeft} <Span>Go back</Span>
+      </GoBackButton>
+
       <Container>
         <img
           width="200"
-          className="gallery__poster"
           src={`https://image.tmdb.org/t/p/w500/${totalMovie.poster_path}`}
           alt="Poster for film ${original_title}"
         />
-        <div>
+
+        <Box>
           <h2>
             {original_title}({date})
           </h2>
@@ -58,13 +64,19 @@ export function MovieDetails() {
           <p>{overview}</p>
           <h3>Genres</h3>
           <p>{takeGenres}</p>
-        </div>
+        </Box>
       </Container>
-      <div>
+      <AditionalContainer>
         <p>Aditional information</p>
-        <Link to="cast">Cast</Link>
-        <Link to="reviews">Reviews</Link>
-      </div>
+        <ul>
+          <li>
+            <Link to="cast">Cast</Link>
+          </li>
+          <li>
+            <Link to="reviews">Reviews</Link>
+          </li>
+        </ul>
+      </AditionalContainer>
       <Outlet />
     </>
   );

@@ -19,16 +19,18 @@ export function Cast() {
       <ul>
         {actors.map(e => {
           return (
-            <>
-              <img
-                width="170"
-                className="gallery__poster"
-                src={`https://image.tmdb.org/t/p/w500/${e.profile_path}`}
-                alt="Poster for film ${original_title}"
-              />
-              <li>{e.name}</li>
+            <li key={e.name}>
+              {e.profile_path && (
+                <img
+                  width="170"
+                  className="gallery__poster"
+                  src={`https://image.tmdb.org/t/p/w500/${e.profile_path}`}
+                  alt="Poster for film ${original_title}"
+                />
+              )}
+              <p>{e.name}</p>
               <p>Character: {e.character}</p>
-            </>
+            </li>
           );
         })}
       </ul>

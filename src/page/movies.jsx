@@ -2,13 +2,13 @@ import { getFilmsSerch } from '../servises';
 import { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 
-function PeintArrey({ arr }) {
+// функцію в окремий фаіл винести
+function PeintArrey({ arr, params }) {
   // переназвати назву пропса який приходить
   if (!arr || arr.results.length < 1) {
     return;
   }
 
-  console.log(arr);
   // ций рендер можна винести в окремий компонетнт так як він є ще в Home
 
   return (
@@ -17,7 +17,9 @@ function PeintArrey({ arr }) {
         {arr.results.map(e => {
           return (
             <li key={e.id}>
-              <Link to={`${e.id}`}>{e.title}</Link>
+              <Link to={`${e.id}`} state={{ from: `/movies?${params}` }}>
+                {e.title}
+              </Link>
             </li>
           );
         })}
@@ -57,7 +59,7 @@ export function Movies() {
         <button tape="submit">Serch</button>
       </form>
 
-      <PeintArrey arr={arraySerchFilm} />
+      <PeintArrey arr={arraySerchFilm} params={searchParams} />
     </div>
   );
 }
