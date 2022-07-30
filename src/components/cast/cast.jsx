@@ -25,7 +25,7 @@ export function Cast() {
                   width="170"
                   className="gallery__poster"
                   src={`https://image.tmdb.org/t/p/w500/${e.profile_path}`}
-                  alt="Poster for film ${original_title}"
+                  alt={e.name}
                 />
               )}
               <p>{e.name}</p>

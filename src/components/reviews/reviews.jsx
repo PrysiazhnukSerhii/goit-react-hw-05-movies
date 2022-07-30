@@ -8,7 +8,7 @@ export function Reviews() {
 
   useEffect(() => {
     getReviews(id).then(e => setReviews(e.results));
-  }, []);
+  }, [id]);
 
   if (!reviews || reviews.length < 1) {
     return <p>We dont have any reviews for this movie</p>;

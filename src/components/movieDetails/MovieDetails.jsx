@@ -21,7 +21,7 @@ export function MovieDetails() {
 
   useEffect(() => {
     getMovieDetails(id).then(e => setTotalMovie(e));
-  }, []);
+  }, [id]);
 
   // картинка сука приходить пізніше, треба під неї зробити щоб зразу було зарезервоване місце
 
@@ -39,8 +39,6 @@ export function MovieDetails() {
 
   const takeGenres = genres.map(e => e.name).join(', ');
 
-  console.log(ArrowLeft);
-
   let userScore = Math.ceil(10 * vote_average);
   return (
     <>
@@ -52,7 +50,7 @@ export function MovieDetails() {
         <img
           width="200"
           src={`https://image.tmdb.org/t/p/w500/${totalMovie.poster_path}`}
-          alt="Poster for film ${original_title}"
+          alt={totalMovie.title}
         />
 
         <Box>
