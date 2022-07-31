@@ -34,12 +34,11 @@ export function MovieDetails() {
 
   // із за цього ретурна не резервується спочатку місце збоку під картинку
 
-  // з цею датою така махінація не дуже нравиться
-  let date = release_date.slice(0, 4);
-
   const takeGenres = genres.map(e => e.name).join(', ');
 
-  let userScore = Math.ceil(10 * vote_average);
+  const userScore = Math.ceil(10 * vote_average);
+  const date = release_date.slice(0, 4);
+
   return (
     <>
       <GoBackButton to={backLinkHref}>

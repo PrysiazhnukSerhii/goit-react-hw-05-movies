@@ -2,7 +2,7 @@ import { Home } from '../../page/home/home';
 import { Movies } from '../../page/movies';
 import { Container, StyledLink } from './App.stuled';
 import { Routes, Route } from 'react-router-dom';
-import { MovieDetails } from '../movieDetails/MovieDetails';
+import { MovieDetails } from '../movieDetails/movieDetails';
 import { Cast } from '../cast/cast';
 import { Reviews } from '../reviews/reviews';
 
@@ -13,15 +13,18 @@ export const App = () => {
     <div>
       <Container>
         <nav>
-          <StyledLink to="/">Home</StyledLink>
-          <StyledLink to="/movies">Movies</StyledLink>
+          <StyledLink to="/goit-react-hw-05-movies/">Home</StyledLink>
+          <StyledLink to="/goit-react-hw-05-movies/movies">Movies</StyledLink>
         </nav>
       </Container>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:id" element={<MovieDetails />}>
+        <Route path="/goit-react-hw-05-movies/" element={<Home />} />
+        <Route path="/goit-react-hw-05-movies/movies" element={<Movies />} />
+        <Route
+          path="/goit-react-hw-05-movies/movies/:id"
+          element={<MovieDetails />}
+        >
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>

@@ -8,7 +8,7 @@ export function Cast() {
 
   useEffect(() => {
     getCast(id).then(e => setActors(e.cast));
-  }, []);
+  }, [id]);
 
   if (!actors) {
     return;
