@@ -17,13 +17,9 @@ export function MovieDetails() {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
-  //  норм назвати змінну якщо не додумаюсь зробити  краще/ попробувати написати фетч прямо в змінній/ хер його зан кажись норм пока, буде час то можна попробувати щось подумати
-
   useEffect(() => {
     getMovieDetails(id).then(e => setTotalMovie(e));
   }, [id]);
-
-  // картинка сука приходить пізніше, треба під неї зробити щоб зразу було зарезервоване місце
 
   const { release_date, original_title, overview, vote_average, genres } =
     totalMovie;
@@ -31,8 +27,6 @@ export function MovieDetails() {
   if (totalMovie === '') {
     return;
   }
-
-  // із за цього ретурна не резервується спочатку місце збоку під картинку
 
   const takeGenres = genres.map(e => e.name).join(', ');
 
@@ -78,6 +72,7 @@ export function MovieDetails() {
           </li>
         </ul>
       </AditionalContainer>
+
       <Outlet />
     </>
   );

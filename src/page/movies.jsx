@@ -1,7 +1,7 @@
 import { getFilmsSerch } from '../servises';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { PeintMovieArrey } from '../components/peintMovieArrey';
+import { PeintListMovie } from '../components/peintListMovie';
 
 export function Movies() {
   const [serchFilm, setSetchFilm] = useState('');
@@ -35,7 +35,7 @@ export function Movies() {
         <button tape="submit">Serch</button>
       </form>
 
-      {arraySerchFilm && <PeintMovieArrey arrFilm={arraySerchFilm.results} />}
+      {arraySerchFilm && <PeintListMovie arrFilm={arraySerchFilm.results} />}
     </div>
   );
 }

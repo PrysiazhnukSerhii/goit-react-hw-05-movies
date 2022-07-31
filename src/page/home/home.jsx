@@ -1,6 +1,6 @@
 import { getTrendingFilms } from '../../servises';
 import { useState, useEffect } from 'react';
-import { PeintMovieArrey } from '../../components/peintMovieArrey';
+import { PeintListMovie } from '../../components/peintListMovie';
 
 export function Home() {
   const [totalList, setTotalList] = useState(null);
@@ -13,5 +13,5 @@ export function Home() {
     return;
   }
 
-  return <PeintMovieArrey arrFilm={totalList} linkPart="movies/" />;
+  return <PeintListMovie arrFilm={totalList} linkPart="movies/" />;
 }
