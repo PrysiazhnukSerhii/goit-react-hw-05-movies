@@ -38,7 +38,6 @@ export function MovieDetails() {
 
   const userScore = Math.ceil(10 * vote_average);
   const date = release_date.slice(0, 4);
-  console.log(backLinkHref);
 
   return (
     <>
