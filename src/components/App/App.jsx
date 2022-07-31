@@ -2,7 +2,7 @@ import { Home } from '../../page/home/home';
 import { Movies } from '../../page/movies';
 import { Container, StyledLink } from './App.stuled';
 import { Routes, Route } from 'react-router-dom';
-import { MovieDetails } from '../movieDetails/movieDetails1';
+import { MovieDetails } from '../movieDetails/movieDetails';
 import { Cast } from '../cast/cast';
 import { Reviews } from '../reviews/reviews';
 
